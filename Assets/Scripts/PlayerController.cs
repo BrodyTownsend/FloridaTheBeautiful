@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
 
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-        moveDirection.y -= gravity * Time.deltaTime;
+        moveDirection.y -= gravity;
 
         characterController.Move(moveDirection * Time.deltaTime);
     }
@@ -116,6 +116,40 @@ public class PlayerController : MonoBehaviour
             {
                 garbage.MarkAsTargeted();
             }
+
+            #region Animal Highlights
+
+            if (interactable is GreenAnole Ganole)
+            {
+                Ganole.MarkAsTargeted();
+            }
+
+            if (interactable is BrownAnole Banole)
+            {
+                Banole.MarkAsTargeted();
+            }
+
+            if (interactable is Deer deer)
+            {
+                deer.MarkAsTargeted();
+            }
+
+            if (interactable is Bat bat)
+            {
+                bat.MarkAsTargeted();
+            }
+
+            if (interactable is Snake snake)
+            {
+                snake.MarkAsTargeted();
+            }
+
+            if (interactable is Tortoise tortoise)
+            {
+                tortoise.MarkAsTargeted();
+            }
+
+            #endregion
 
             if (Input.GetKeyDown(KeyCode.E))
             {
