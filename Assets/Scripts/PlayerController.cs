@@ -117,39 +117,10 @@ public class PlayerController : MonoBehaviour
                 garbage.MarkAsTargeted();
             }
 
-            #region Animal Highlights
-
-            if (interactable is GreenAnole Ganole)
+            if (interactable is Animal animal)
             {
-                Ganole.MarkAsTargeted();
+                    animal.MarkAsTargeted();
             }
-
-            if (interactable is BrownAnole Banole)
-            {
-                Banole.MarkAsTargeted();
-            }
-
-            if (interactable is Deer deer)
-            {
-                deer.MarkAsTargeted();
-            }
-
-            if (interactable is Bat bat)
-            {
-                bat.MarkAsTargeted();
-            }
-
-            if (interactable is Snake snake)
-            {
-                snake.MarkAsTargeted();
-            }
-
-            if (interactable is Tortoise tortoise)
-            {
-                tortoise.MarkAsTargeted();
-            }
-
-            #endregion
 
             if (Input.GetKeyDown(KeyCode.E))
             {
