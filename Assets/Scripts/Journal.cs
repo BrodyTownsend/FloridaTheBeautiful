@@ -12,11 +12,111 @@ public class Journal : MonoBehaviour
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject forwardButton;
 
+    public GameObject deerText;
+    public GameObject tortText;
+    public GameObject batText;
+    public GameObject snakeText;
+    public GameObject greenText;
+    public GameObject brownText;
+
+    public FoundAnimalManager animManager;
+
 
     private void Start()
     {
         backButton.SetActive(false);
     }
+
+    private void Update()
+    {
+        DeerFound();
+        TortoiseFound();
+        BatFound();
+        SnakeFound();
+        GreenFound();
+        BrownFound();
+    }
+
+    //Functions for each Animal when Discovered//
+    public void DeerFound()
+    {
+        if (animManager.foundDeer == false)
+        {
+            deerText.SetActive(false);
+        }
+
+        else
+        {
+            deerText.SetActive(true);
+        }
+    }
+
+    public void TortoiseFound()
+    {
+        if(animManager.foundTortoise == false)
+        {
+            tortText.SetActive(false);
+        }
+
+        else
+        {
+            tortText.SetActive(true);
+        }
+    }
+
+    public void BatFound()
+    {
+        if (animManager.foundBat == false)
+        {
+            batText.SetActive(false);
+        }
+
+        else
+        {
+            batText.SetActive(true);
+        }
+    }
+
+    public void SnakeFound()
+    {
+        if(animManager.foundSnake == false)
+        {
+            snakeText.SetActive(false);
+        }
+
+        else
+        {
+            snakeText.SetActive(true);
+        }
+    }
+
+    public void GreenFound()
+    {
+        if(animManager.foundGreenAnole == false)
+        {
+            greenText.SetActive(false);
+        }
+
+        else
+        {
+            snakeText.SetActive(true);
+        }
+    }
+
+    public void BrownFound()
+    {
+        if(animManager.foundBrownAnole == false)
+        {
+            brownText.SetActive(false);
+        }
+
+        else
+        {
+            brownText.SetActive(true);
+        }
+    }
+    //End of Animal Functions//
+
     public void RotateForward()
     {
         if (rotate == true) { return; }
