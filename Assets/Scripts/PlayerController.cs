@@ -10,7 +10,13 @@ public class PlayerController : MonoBehaviour
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
-    public float gravity = 10f;
+
+    // Increased gravity to make jumps feel even less floaty
+    public float gravity = 20f;
+
+    [Header("Jump Settings")]
+    // Halved jumpForce from 5f to 2.5f
+    public float jumpForce = 2.5f;
 
     public float lookSpeed = 2f;
     public float lookXLimit = 45f;
@@ -23,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
+    private float verticalVelocity = 0f; // For handling gravity and jumps
     private CharacterController characterController;
     private Vector3 originalCamLocalPos;
     private float shakeTimer;
@@ -57,21 +64,54 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        if(journalOpen)
-        {
-            return;
-        }
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
+        if (journalOpen) return;
 
+        // Determine desired speed
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
+        float currentSpeed = isRunning ? runSpeed : walkSpeed;
 
-        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-        moveDirection.y -= gravity;
+        // Get input
+        float inputX = Input.GetAxis("Horizontal");
+        float inputZ = Input.GetAxis("Vertical");
 
-        characterController.Move(moveDirection * Time.deltaTime);
+        // Convert input to world space direction
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right   = transform.TransformDirection(Vector3.right);
+
+        // Calculate horizontal movement (X/Z)
+        float moveX = currentSpeed * inputX;
+        float moveZ = currentSpeed * inputZ;
+
+        // Combine horizontal movement
+        Vector3 horizontalMovement = (forward * moveZ) + (right * moveX);
+
+        // Handle jump and gravity
+        if (characterController.isGrounded)
+        {
+            // If grounded, reset vertical velocity
+            verticalVelocity = -1f;
+
+            // Jump
+            if (Input.GetKeyDown(KeyCode.Space) && canMove)
+            {
+                verticalVelocity = jumpForce;
+            }
+        }
+        else
+        {
+            // Apply gravity when not grounded
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+
+        // Combine vertical velocity with horizontal movement
+        moveDirection = horizontalMovement;
+        moveDirection.y = verticalVelocity;
+
+        // Move the CharacterController
+        if (canMove)
+        {
+            characterController.Move(moveDirection * Time.deltaTime);
+        }
     }
 
     void HandleLook()
@@ -126,7 +166,7 @@ public class PlayerController : MonoBehaviour
         IInteractable interactable = hit.collider.GetComponent<IInteractable>();
         if (interactable != null)
         {
-            // Highlight it if it supports MarkAsTargeted
+            // Example existing code for highlighting
             if (interactable is GarbagePile garbage)
             {
                 garbage.MarkAsTargeted();
@@ -134,9 +174,17 @@ public class PlayerController : MonoBehaviour
 
             if (interactable is Animal animal)
             {
-                    animal.MarkAsTargeted();
+                animal.MarkAsTargeted();
             }
+            
+            // --- ADD THIS BLOCK ---
+            if (interactable is Door door)
+            {
+                door.MarkAsTargeted();
+            }
+            // ----------------------
 
+            // If player pressed E, call Interact
             if (Input.GetKeyDown(KeyCode.E))
             {
                 interactable.Interact();
@@ -145,18 +193,17 @@ public class PlayerController : MonoBehaviour
     }
 }
 
+
     void OpenJournal()
     {
-
         journalOpen = !journalOpen;
 
-        if (journalOpen == true)
+        if (journalOpen)
         {
             journalCanvas.SetActive(true);
             UnityEngine.Cursor.lockState = CursorLockMode.None;
             UnityEngine.Cursor.visible = true;
         }
-
         else
         {
             journalCanvas.SetActive(false);
@@ -164,5 +211,4 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Cursor.visible = false;
         }
     }
-
 }
