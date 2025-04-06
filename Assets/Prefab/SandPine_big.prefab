@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.040822696
+      value: 0.02447485
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.040822696
+      value: 0.02447485
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.040822696
+      value: 0.02447485
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.774014
+      value: 36.861
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5000153
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -146.0571
+      value: -146.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 712786d5f2138b840af1495d39f06592, type: 2}
     - target: {fileID: 919132149155446097, guid: a71b2f493af517d448d08cee252a87c1, type: 3}
       propertyPath: m_Name
-      value: sandPine_big
+      value: SandPine_big
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
