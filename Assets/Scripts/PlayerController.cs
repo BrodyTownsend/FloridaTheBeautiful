@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -24,14 +26,17 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private Vector3 originalCamLocalPos;
     private float shakeTimer;
+    public bool journalOpen = false;
+
+    public GameObject journalCanvas;
 
     public bool canMove = true;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
 
         if (!playerCamera) playerCamera = Camera.main;
         originalCamLocalPos = playerCamera.transform.localPosition;
@@ -43,10 +48,19 @@ public class PlayerController : MonoBehaviour
         HandleLook();
         ApplyCameraShake();
         HandleInteraction();
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            OpenJournal();
+        }
     }
 
     void HandleMovement()
     {
+        if(journalOpen)
+        {
+            return;
+        }
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -63,6 +77,7 @@ public class PlayerController : MonoBehaviour
     void HandleLook()
     {
         if (!canMove) return;
+        if (journalOpen) return;
 
         rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
         rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
@@ -129,5 +144,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
+    void OpenJournal()
+    {
+
+        journalOpen = !journalOpen;
+
+        if (journalOpen == true)
+        {
+            journalCanvas.SetActive(true);
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+        }
+
+        else
+        {
+            journalCanvas.SetActive(false);
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.visible = false;
+        }
+    }
 
 }
