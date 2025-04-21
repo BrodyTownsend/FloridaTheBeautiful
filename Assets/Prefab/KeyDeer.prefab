@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3270528
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5015564
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -165.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       propertyPath: m_Name
-      value: keyDeer_walk
+      value: keyDeer
       objectReference: {fileID: 0}
     - target: {fileID: 4268919855153882011, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

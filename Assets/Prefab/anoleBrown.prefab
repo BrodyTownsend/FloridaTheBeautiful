@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5182845240579237193, guid: 4c72ba0a8a771754394708efaa608d05, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.718
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5182845240579237193, guid: 4c72ba0a8a771754394708efaa608d05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5015554
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5182845240579237193, guid: 4c72ba0a8a771754394708efaa608d05, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -177.88766
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5182845240579237193, guid: 4c72ba0a8a771754394708efaa608d05, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5523377857830387699, guid: 4c72ba0a8a771754394708efaa608d05, type: 3}
       propertyPath: m_Name
-      value: anole_walk (1) Variant
+      value: anoleBrown
       objectReference: {fileID: 0}
     - target: {fileID: 8253310567620379376, guid: 4c72ba0a8a771754394708efaa608d05, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
