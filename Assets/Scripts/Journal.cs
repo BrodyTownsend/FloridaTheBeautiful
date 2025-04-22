@@ -7,7 +7,7 @@ public class Journal : MonoBehaviour
 {
     [SerializeField] float pageSpeed = 0.5f;
     [SerializeField] List<Transform> pages;
-    int index = -1;
+    public int index = -1;
     bool rotate = false;
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject forwardButton;
@@ -99,7 +99,7 @@ public class Journal : MonoBehaviour
 
         else
         {
-            snakeText.SetActive(true);
+            greenText.SetActive(true);
         }
     }
 
