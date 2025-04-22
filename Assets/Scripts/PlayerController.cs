@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove = true;
 
+    public Journal journalScript;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -58,7 +60,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            OpenJournal();
+            if(journalScript.rotate == false)
+            {
+                OpenJournal();
+            }
+            
         }
     }
 

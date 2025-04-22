@@ -8,7 +8,7 @@ public class Journal : MonoBehaviour
     [SerializeField] float pageSpeed = 0.5f;
     [SerializeField] List<Transform> pages;
     public int index = -1;
-    bool rotate = false;
+    public bool rotate = false;
     [SerializeField] GameObject backButton;
     [SerializeField] GameObject forwardButton;
 
