@@ -35,11 +35,15 @@ public class PlayerController : MonoBehaviour
     private float shakeTimer;
     public bool journalOpen = false;
 
+    public bool gameStart = false;
+
     public GameObject journalCanvas;
 
     public bool canMove = true;
 
     public Journal journalScript;
+
+    public GameObject openingScreen;
 
     void Start()
     {
@@ -57,6 +61,12 @@ public class PlayerController : MonoBehaviour
         HandleLook();
         ApplyCameraShake();
         HandleInteraction();
+
+        if (Input.anyKeyDown)
+        {
+            openingScreen.SetActive(false);
+            gameStart = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -125,10 +135,13 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
         if (journalOpen) return;
 
-        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        if (gameStart == true)
+        {
+            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
     }
 
     void ApplyCameraShake()
