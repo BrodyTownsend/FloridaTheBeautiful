@@ -63,12 +63,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3510912516006650058}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8300505706270906634}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5781461570933191224}
   m_SourcePrefab: {fileID: 100100000, guid: 289c8763dd75ddf44aebaa80a3a238e0, type: 3}
 --- !u!1 &535728856928235214 stripped
 GameObject:
@@ -97,40 +91,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8300505706270906634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535728856928235214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ab23d9c45ee7bd4db39a61670e01c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineObject: {fileID: 0}
-  animalManager: {fileID: 0}
-  myType: 3
---- !u!114 &5781461570933191224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535728856928235214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8374d13eb10af149b2f73693d2d5cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  speed: 3
-  isLoop: 1
-  rotationSpeed: 2

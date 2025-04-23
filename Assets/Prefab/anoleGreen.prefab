@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6b78b4cc67c3bb44ea554826f4df4327, type: 2}
+    - target: {fileID: 6863597776116458231, guid: b134d229eb96d124093bcdd7c7d59f81, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863597776116458231, guid: b134d229eb96d124093bcdd7c7d59f81, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863597776116458231, guid: b134d229eb96d124093bcdd7c7d59f81, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
